@@ -16,5 +16,9 @@
 (prelude-require-package 'ace-window)
 (global-set-key (kbd "M-p") 'ace-window)
 
+;;; Decent fonts on windows
+(when (eq system-type 'windows-nt)
+  (set-frame-font "Consolas-10"))
+
 (provide 'my-real-estate)
 ;;; my-real-estate.el ends here
