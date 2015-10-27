@@ -5,8 +5,10 @@
 
 ;;; Code:
 
-(require 'package)
-(when (package-installed-p 'mu4e)
+(defun mu4e-installed-p ()
+  (locate-file "mu4e.el" load-path))
+
+(when (mu4e-installed-p)
  (require 'mu4e)
  (setq
   mu4e-maildir            "~/.mail"   ;; top-level maildir
@@ -16,9 +18,9 @@
   mu4e-refile-folder      "/fastmail/archive"
   mu4e-get-mail-command   "mbsync -aq"
   mu4e-update-interval    300)
- 
+
  (setq mail-user-agent 'mu4e-user-agent)
- 
+
  (require 'smtpmail)
  (require 'magit)
  (setq
@@ -30,7 +32,7 @@
   user-mail-address    (magit-get "user.email")
   send-mail-function   'smtpmail-send-it
   message-kill-buffer-on-exit t)
- 
+
  (require 'mu4e-contrib)
  (setq mu4e-html2text-command 'mu4e-shr2text))
 
