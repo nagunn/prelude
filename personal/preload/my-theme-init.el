@@ -15,8 +15,12 @@
 (unless (package-installed-p 'noctilux-theme)
   (package-install 'noctilux-theme))
 
+;;; Decent fonts on windows
+(when (eq system-type 'windows-nt)
+  (set-frame-font "Consolas-10"))
+
 (custom-set-variables
  '(prelude-theme 'noctilux))
 
 (provide 'my-theme-init)
-;;; my-preload.el ends here
+;;; my-theme-init.el ends here
