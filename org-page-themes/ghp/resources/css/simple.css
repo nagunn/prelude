@@ -1,0 +1,28 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 40px auto 100px;
+    max-width: 650px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #444;
+    padding: 0px 10px;
+}
+
+h1,h2,h3 {
+    line-height: 1.2;
+}
+
+footer {
+    max-width: 650px;
+    position: absolute;
+    font-size: 12px;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
