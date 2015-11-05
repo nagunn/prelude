@@ -22,5 +22,8 @@
 (custom-set-variables
  '(prelude-theme 'noctilux))
 
+(make-variable-buffer-local 'global-hl-line-mode)
+(add-hook 'org-mode-hook (lambda () (setq global-hl-line-mode nil)))
+
 (provide 'my-theme-init)
 ;;; my-theme-init.el ends here
