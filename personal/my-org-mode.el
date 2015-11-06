@@ -12,7 +12,7 @@
 ;;; A safe concat that ensures the first argument is properly
 ;;; terminated as a directory.
 (defun concat-dir (dir file)
-  "Append file (as FILE) to dir (as DIR) safely."
+  "Concatenate DIR and FILE ensuring that DIR is a properly formatted directory."
   (concat (file-name-as-directory dir) file))
 
 ;;; Map the specified files into the org-directory.
