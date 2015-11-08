@@ -1,4 +1,4 @@
-;;; package --- early initialization
+;;; my-theme-init.el --- early initialization
 ;;; Commentary:
 ;;; Set early variables
 
@@ -24,6 +24,11 @@
 
 (make-variable-buffer-local 'global-hl-line-mode)
 (add-hook 'org-mode-hook (lambda () (setq global-hl-line-mode nil)))
+
+(when (daemonp)
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+              (with-selected-frame frame (load-theme 'noctilux t)))))
 
 (provide 'my-theme-init)
 ;;; my-theme-init.el ends here
