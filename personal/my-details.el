@@ -1,6 +1,6 @@
-;;; package --- my-details
+;;; my-details --- Set personal details
 ;;; Commentary:
-;;; Set personal details.
+;;; Assume environment variables have been appropriately set up.
 
 ;;; Code:
 (setq user-full-name    (getenv "USER"))

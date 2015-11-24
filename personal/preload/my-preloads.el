@@ -1,10 +1,10 @@
-;;; my-theme-init.el --- early initialization
+;;; my-preloads --- Some bootstrap packages
+;;;
 ;;; Commentary:
-;;; Set early variables
+;;; Install some bootstrap packages without the assistance of prelude.
+;;;
 
 ;;; Code:
-
-;;; Noctilux is a good theme on all platforms.
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -12,8 +12,16 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;;; Noctilux is a good theme on all platforms.
 (unless (package-installed-p 'noctilux-theme)
   (package-install 'noctilux-theme))
+
+;;; Install auth-password-store so that prelude customizations can rely on it.
+(unless (package-installed-p 'auth-password-store)
+  (package-install 'auth-password-store))
+
+;;; Enable auth-password-store
+(auth-pass-enable)
 
 ;;; Decent fonts on windows
 (when (eq system-type 'windows-nt)
@@ -30,5 +38,5 @@
             (lambda (frame)
               (with-selected-frame frame (load-theme 'noctilux t)))))
 
-(provide 'my-theme-init)
-;;; my-theme-init.el ends here
+(provide 'my-preloads)
+;;; my-preloads.el ends here

@@ -9,6 +9,7 @@
   (locate-file "mu4e.el" load-path))
 
 (when (mu4e-installed-p)
+ (require 'my-details)
  (require 'mu4e)
  (setq
   mu4e-maildir            "~/.mail"   ;; top-level maildir
@@ -22,20 +23,17 @@
  (setq mail-user-agent 'mu4e-user-agent)
 
  (require 'smtpmail)
- (require 'magit)
  (setq
-  auth-sources         '(macos-keychain-internet macos-keychain-generic)
-  smtpmail-smtp-server "mail.messagingengine.com"
+  smtpmail-smtp-server  "mail.messagingengine.com"
   smtpmail-smtp-service 465
-  smtpmail-smtp-user   (magit-get "user.smtp")
-  smtpmail-stream-type 'ssl
-  user-mail-address    (magit-get "user.email")
-  send-mail-function   'smtpmail-send-it
+  smtpmail-smtp-user    user-mail-account
+  smtpmail-stream-type  'ssl
+  user-mail-address     user-mail-address
+  send-mail-function    'smtpmail-send-it
   message-kill-buffer-on-exit t)
 
  (require 'mu4e-contrib)
  (setq mu4e-html2text-command 'mu4e-shr2text))
-
 
 (provide 'my-mail)
 ;;; my-mail.el ends here
