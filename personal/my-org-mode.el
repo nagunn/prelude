@@ -4,6 +4,7 @@
 
 ;;; Code:
 (require 'org)
+(require 'org-mu4e)
 
 ;;; The set of locations that are considered for inclusion as agenda
 ;;; sources and as refile targets.
