@@ -21,3 +21,6 @@ session*
 tramp
 /var/pcache
 /server/server
+/.org-id-locations
+/org-caldav-backup.org
+/org-caldav-de46c1d.el
