@@ -27,7 +27,12 @@
   "Return a set of todo files from a set of locations (as LOCS)."
   (mapcar (lambda (f) (concat-dir f (concat f ".org"))) locs))
 
-(setq org-agenda-files (in-org-directory (my-todo-files my-org-locations)))
+(setq org-agenda-files (append org-agenda-files (in-org-directory (my-todo-files my-org-locations))))
+
+;;; Calendar synchronization
+(prelude-require-package 'org-caldav)
+(require 'org-caldav)
+
 (setq org-default-notes-file (concat-dir org-directory "notes.org"))
 (setq org-refile-targets (mapcar (lambda (f) `(,f :level . 1)) org-agenda-files))
 (setq org-refile-use-outline-path t)

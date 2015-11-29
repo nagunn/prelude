@@ -5,6 +5,11 @@
 ;;;
 
 ;;; Code:
+
+;;; Bring in personal settings.
+(add-to-list 'load-path "~/.my-emacs")
+(require 'my-details)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
